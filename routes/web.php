@@ -17,13 +17,12 @@ Route::get('/review', 'ReviewController@showReviews');
 
 Route::post('/review/add', 'ReviewController@addReview');
 
-Route::get('/rating', 'RatingController@showTop');
+Route::get('/rating', 'UserController@showTop');
 
 Route::get('/need', 'NeedController@showNeedList');
 
 Route::get('/need/{id}', 'NeedController@showNeed')->where('id', '[0-9]+');
 
-//следующие три не срабатывают(
 Route::post('/need/create', 'NeedController@createNeed');
 
 Route::put('/need/{id}/update', 'NeedController@updateNeed')->where('id', '[0-9]+');
@@ -34,7 +33,7 @@ Route::get('/user/{id}', 'UserController@showProfile')->where('id', '[0-9]+');
 
 Route::post('/user/{id}', 'UserController@editProfile')->where('id', '[0-9]+');
 
-Route::post('/user/{id1}/bill/{id2}', 'UserController@editProfile')
+Route::post('/user/{id1}/bill/{id2}', 'UserController@bill')
 ->where(['id1' => '[0-9]+', 'id2' => '[0-9]+']);
 
 Route::post('/user/{id}/comment', 'UserController@addComment')

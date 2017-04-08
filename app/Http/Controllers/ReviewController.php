@@ -9,7 +9,6 @@ class ReviewController extends Controller
 	public function showReviews() {
 		return view('review');
 	}
-
 	public function addReview() {
 		echo "Add review";
 	}
