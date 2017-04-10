@@ -9,7 +9,14 @@ use App\Need;
 class NeedController extends Controller
 {
 	public function showNeedList() {
-		//$needs = 
+		$n=4;
+		$needs = Need::where('status', '=', 'new')->orderBy('created_at', 'desc')->paginate($n);
+        $needs->transform(function ($need, $key) {
+  			$need['category'] = $need->category()->first();
+            $need['user_from'] = $need->userFrom()->first();
+            $need['user_by'] = $need->userBy()->first();
+  			return $need;
+		});
 		return view('need/needList', ['needs' => $needs]);
 	}
 
@@ -29,6 +36,10 @@ class NeedController extends Controller
 
 	public function showNeed($id) {
 		$need = Need::find($id);
+		$need['category'] = $need->category()->first();
+        $need['user_from'] = $need->userFrom()->first();
+        $need['user_by'] = $need->userBy()->first();
+
 		return view('need/need', ['need' => $need]);
 	}
 }

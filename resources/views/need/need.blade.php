@@ -5,5 +5,8 @@ Need
 @stop
 
 @section('content')
-Информация о задании по id <?php echo $id; ?>
+Информация о задании по id
+<div>
+    <p> {{$need}} </p>
+</div>
 @stop
