@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -12,17 +13,22 @@ class UserController extends Controller
 			который просматривает страницу,  и тогда выводить еще настройки.
 			Или лучше сделать отдельно?
 		*/
-		return view('user/profile', ['id' => $id]);
+		$user = User::find($id);
+		return view('user/profile', ['user' => $user]);
 	}
+
 	public function editProfile($id) {
-		return view('user/editProfile', ['id' => $id]);
+		return redirect->action('UserController@showProfile', ['id' => $id]);
 	}
+
 	//Оплата баллами
 	public function bill($id1, $id2) {
 		return view('user/bill');
 	}
+
 	public function addComment($id) {
-		echo "Добавить отзыв о пользователе";
+		//echo "Добавить отзыв о пользователе";
+		return redirect->action('UserController@showProfile', ['id' => $id]);
 	}
 
 	public function showTop() {

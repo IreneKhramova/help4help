@@ -11,9 +11,8 @@ class Review extends Model
         'text'
     ];
 
-    public function getNewReviews($n)
+    public function userFrom()
     {
-    	$reviews = Review::orderBy('created_at', 'desc')->take($n)->get();
-    	return $reviews;
+        return $this->belongsTo('App\User', 'id_from');
     }
 }

@@ -13,9 +13,18 @@ class Need extends Model
         'points'
     ];
 
-    public function getNewNeeds($n)
+    public function userFrom()
     {
-    	$needs = Need::orderBy('created_at', 'desc')->having('status', '=', 'new')->take($n)->get();
-    	return $needs;
+        return $this->belongsTo('App\User', 'id_from');
+    }
+
+    public function userBy()
+    {
+        return $this->belongsTo('App\User', 'id_by');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo('App\NeedCategory', 'category_id');
     }
 }

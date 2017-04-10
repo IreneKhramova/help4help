@@ -12,4 +12,14 @@ class Comment extends Model
         'text',
         'rating'
     ];
+
+    public function userFrom()
+    {
+        return $this->belongsTo('App\User', 'id_from');
+    }
+
+    public function userTo()
+    {
+        return $this->belongsTo('App\User', 'id_to');
+    }
 }

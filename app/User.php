@@ -28,11 +28,46 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token', 'email',
     ];
 
     public function getTopUsers($n)
     {
-        //
+        //Как будем определять, если у 100500 человек рейтинг 10 из 10?
+    }
+
+    public function writtenComments()
+    {
+        return $this->hasMany('App\Comment', 'id_from');
+    }
+
+    public function acceptedComments()
+    {
+        return $this->hasMany('App\Comment', 'id_to');
+    }
+
+    public function review()
+    {
+        return $this->hasOne('App\Review', 'id_from');
+    }
+
+    public function acceptedMessages()
+    {
+        return $this->hasMany('App\Message', 'id_to');
+    }
+
+    public function writtenMessages()
+    {
+        return $this->hasMany('App\Message', 'id_from');
+    }
+
+    public function writtenNeeds()
+    {
+        return $this->hasMany('App\Need', 'id_from');
+    }
+
+    public function acceptedNeeds()
+    {
+        return $this->hasMany('App\Need', 'id_by');
     }
 }
