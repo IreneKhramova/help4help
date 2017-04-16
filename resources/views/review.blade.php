@@ -10,7 +10,9 @@ Review
 
 <div class="container">
     <?php foreach ($reviews as $review): ?>
-        <?php echo $review->id; ?>
+    	<p>
+        <?php echo $review->text; ?>
+        </p>
     <?php endforeach; ?>
 </div>
 

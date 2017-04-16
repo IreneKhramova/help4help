@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Review;
 
 class ReviewController extends Controller
@@ -18,12 +19,26 @@ class ReviewController extends Controller
 		return view('review', ['reviews' => $reviews]);
 	}
 
-	public function addReview() {
-		/*$review = new Review;
+	public function addReview(Request $request) {
+		//здесь будет проверка $request->all()
+		$review = new Review;
+		/*if (Auth::check())
+		{
+    		// The user is logged in...
+			$review->id_from = Auth::user()->id;
+		}
+		else
+		{
+			//return redirect регистрация/вход;
+		}*/
+		$review->id_from = $request->id_from;
+		$review->text = $request->text;
 		
-		$review = Review::create($request->all());
-		//echo "Add review";
-		*/
-		return redirect('');
+		$review->save();
+		return redirect('review');
+	}
+
+	public function getAddReview() {
+		return view('addReview');
 	}
 }

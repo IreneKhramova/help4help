@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Need;
+use App\NeedCategory;
+use Illuminate\Support\Facades\Auth;
 
 class NeedController extends Controller
 {
@@ -21,17 +23,45 @@ class NeedController extends Controller
 	}
 
 	public function createNeed(Request $request) {
-		/*Need::createNeed($request->all());
-		return redirect()->route('/need/', ['id' => $request->input('id')]);
-		*/
+		//здесь будет проверка $request
+		$need = new Need;
+		/*if (Auth::check())
+		{
+    		// The user is logged in...
+			$need->id_from = Auth::user()->id;
+		}
+		else
+		{
+			//return redirect регистрация/вход;
+		}*/
+		$need->id_from = $request->id_from;
+		$need->text = $request->text;
+		//что, если такой категории нет? Может, сделать select в форме вместо input?
+		$need->category_id = NeedCategory::where('name', '=', $request->category)->firstOrFail()->id;
+		$need->points = $request->points;
+		
+		$need->save();
+		return redirect()->route('need_view', $need->id);
 	}
 
-	public function updateNeed($id) {
+	public function getCreateNeed() {
+		return view('need/create');
+	}
+
+	public function getUpdateNeed($id) {
 		return view('need/update');
 	}
 
-	public function deleteNeed($id) {
+	public function getDeleteNeed($id) {
 		return view('need/delete');
+	}
+
+	public function updateNeed(Request $request) {
+		
+	}
+
+	public function deleteNeed(Request $request) {
+		
 	}
 
 	public function showNeed($id) {
