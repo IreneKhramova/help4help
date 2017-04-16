@@ -5,5 +5,8 @@ Profile
 @stop
 
 @section('content')
-Профиль пользователя с id = <?php echo $id; ?>
+Профиль пользователя 
+<div>
+        <p> {{$user}} </p>
+      </div>
 @stop

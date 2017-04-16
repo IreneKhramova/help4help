@@ -9,22 +9,11 @@ use App\User;
 
 class IndexController extends Controller
 {
-	public function getIndex() {
+	public function getIndex(Need $needModel, Review $reviewModel) {
 		$n=3;
-		//нужно как-то выносить подобный код из контроллера в модель(или не в модель?)
-		$needs = Need::where('status', '=', 'new')->orderBy('created_at', 'desc')->take($n)->get();
-        $needs->transform(function ($need, $key) {
-  			$need['category'] = $need->category()->first();
-            $need['user_from'] = $need->userFrom()->first();
-            $need['user_by'] = $need->userBy()->first();
-  			return $need;
-		});
+		$needs = $needModel->getNeedList($n);
 
-		$reviews = Review::orderBy('created_at', 'desc')->take($n)->get();
-        $reviews->transform(function ($review) {
-            $review['user_from'] = $review->userFrom()->first();
-  			return $review;
-		});
+		$reviews = $reviewModel->getReviews($n);
 
 		//$topUsers = ;
 		return view('index', [

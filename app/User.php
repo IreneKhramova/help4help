@@ -70,4 +70,10 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Need', 'id_by');
     }
+
+    public function getUser($id)
+    {
+        $user = User::find($id);
+        return $user;
+    }
 }
