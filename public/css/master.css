@@ -91,6 +91,11 @@ p {
     margin-left: 30px;
 }
 
+.anchor {
+  display: block;
+  visibility: hidden;
+}
+
 p + p {
   margin-top: 20px;
 }

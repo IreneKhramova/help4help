@@ -22,5 +22,6 @@
 	@yield('content')
 	<footer></footer>
 </body>
+@yield('scriptsExtra')
 <script src="js/fixed-menu.js"></script>
 </html>

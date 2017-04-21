@@ -7,10 +7,11 @@ Index
 @section('headExtra')
 	<link rel="stylesheet" href="css/reset.css">
   	<link rel="stylesheet" href="css/master.css">
-  	
+
 @stop
 
 @section('content')
+<span class="anchor"></span>
 <section class="menu">
     <nav>
       <ul>
@@ -185,5 +186,7 @@ Index
     </form>
 </div>
 </section>
-
+@stop
+@section('scriptsExtra')
+<script src="js/height.js"></script>
 @stop
