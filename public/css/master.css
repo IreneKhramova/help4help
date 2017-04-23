@@ -25,7 +25,7 @@ p {
   border-bottom: 2px solid rgba(255, 255, 255, 0.5);
 }
 /**
-*картинки , которыый на сайте вставлены
+*картинки , которые на сайте вставлены
 **/
 .head_img {
   width: 400px;
@@ -52,7 +52,7 @@ p {
   width: 400px;
   height: 200px;
   background-color: #f601b2;
-  margin: 0px auto;
+  margin: 0px auto 20px auto;
 }
 .partners_img {
   width: 400px;
@@ -123,11 +123,11 @@ p + p {
 *form форма заполнения
 **/
 .subscribe {
-margin: 0 auto;
- background: rgba(0,0,0,0.65);
- border-radius: 5px;
- display: table;
- padding: 25px;
+  margin: 0 auto;
+  background: rgba(0,0,0,0.65);
+  border-radius: 5px;
+  display: table;
+  padding: 25px;
 }
 
 .subscribe input {
@@ -164,48 +164,49 @@ margin: 0 auto;
 **/
 .whatis {
   background-color: #292929;
-  height: 400px;
+  min-height: 400px;
   color: #fff;
 }
 
 .registration {
   background-color: #080524;
-  height: 400px;
+  min-height: 400px;
   color: #fff;
 }
 
 .new_orders {
   text-align: center;
   background-color: #dfd0bd;
-  height: 450px;
+  min-height: 510px;
   color: #601112;
+  position:relative;
 }
 
 .rating {
   text-align: center;
   background-color: #fff;
-  height: 450px;
+  min-height: 450px;
   color: #000;
 }
 
 .comment {
   text-align: center;
   background-color: #1e0c24;
-  height: 550px;
+  min-height: 550px;
   color: #fff;
 }
 
 .partners {
   text-align: center;
   background-color: #5c0a10;
-  height: 450px;
+  min-height: 450px;
   color: #fff;
 }
 
 .about {
   text-align: center;
   background-color: #000;
-  height: 450px;
+  min-height: 450px;
   color: #fff;
 }
 
@@ -257,10 +258,33 @@ margin: 0 auto;
   margin: 50px 80px;
 }
 
-.new_orders .block {
-  margin: 0px auto 10px;
+.new_orders .big-part {
+  position:relative;
+  height: 100%;
+  overflow: hidden;
 }
 
+.new_orders .block {
+  margin: 0px auto 10px;
+  position:relative;
+  float: left;
+  width: 100%;
+}
+
+.new_orders .block .icon {
+  float: left;
+}
+
+.new_orders .block .text {
+  float: left;
+  margin-left: 30px;
+}
+
+.new_orders .block .text p {
+    position: absolute;
+    top: 20%;
+    left: 10 px;
+}
 
 /**
 *class="rating"

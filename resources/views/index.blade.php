@@ -42,26 +42,26 @@ Index
     <h2>Новые заявки</h2>
     <div class="new_orders_img">
     </div>
+    <div class="subscribe">
+     <form action="" method="post">
+       <input type="submit" name="" value="Просмотреть все заявки">
+     </form>
+     </div>
   </div>
   <div class="big-part">
-    <div class="order">
-
-      <div class="block">
+	@foreach($needs as $key => $need)
+     <div class="block">
+      <div class="icon">
         <div class="service-icon">
           <img src="images/services/Branding-Identity.png">
         </div>
-        <h4 class="service-head">+1234 Name Surname</h4>
-        <p>Нужно перештукатурить стену</p>
-      </div>
-
-
-
-      <div class="subscribe">
-      <form action="" method="post">
-        <input type="submit" name="" value="Просмотреть все заявки">
-      </form>
-      </div>
-    </div>
+        <h4 class="service-head">{{$need->user_from->name}}</h4>
+       </div>
+       <div class="text">
+        <p>{{$need->text}}</p>
+       </div>
+     </div>
+	@endforeach
   </div>
   </section>
 
