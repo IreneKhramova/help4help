@@ -4,36 +4,14 @@
 Index
 @stop
 
-@section('headExtra')
-	<link rel="stylesheet" href="css/reset.css">
-  	<link rel="stylesheet" href="css/master.css">
-
-@stop
-
 @section('content')
-<span class="anchor"></span>
-<section class="menu">
-    <nav>
-      <ul>
-        <li><a href="#1">о нас</a></li>
-        <li><a href="#2">заявки</a></li>
-        <li><a href="#3">рейтинг</a></li>
-        <li><a href="#4">отзывы</a></li>
-        <li><a href="#5">партнёры</a></li>
-        <li><a href="#6">контакты</a></li>
-        <li><a href="">войти</a></li>
-      </ul>
-    </nav>
-</section>
-
-
 <section id="1" class="whatis">
     <h2>что это такое?</h2>
-    <div class="left">
+    <div class="big-part">
       <p><span class="logo">Help4Help</span> - место , где можно найти различную помощь и предложить помощь самому.</p>
       <p>Помогать умеют не только супергерои.</p>
     </div>
-    <div class="right">
+    <div class="little-part">
       <h3>Мне помогают</h3>
       <p>Оставьте заявку с описанием вашей просьбы о помощи</p>
       <h3>Я помогаю</h3>
@@ -42,7 +20,7 @@ Index
   </section>
 
   <section class="registration">
-    <div class="left">
+    <div class="big-part">
       <h2>Регистрация</h2>
     <p><span class="shad">Зарегестрируйся</span> чтобы иметь больше возможностей</p>
     <div class="subscribe">
@@ -53,19 +31,19 @@ Index
       </form>
     </div>
   </div>
-  <div class="right">
+  <div class="little-part">
     <div class="reg_img">
     </div>
   </div>
   </section>
 
   <section id="2" class="new_orders">
-    <div class="left">
+    <div class="little-part">
     <h2>Новые заявки</h2>
     <div class="new_orders_img">
     </div>
   </div>
-  <div class="right">
+  <div class="big-part">
     <div class="order">
 
       <div class="block">
@@ -88,7 +66,7 @@ Index
   </section>
 
   <section id="3" class="rating">
-    <div class="left">
+    <div class="big-part">
       <div class="top_line">
       <div class="block">
         <div class="service-icon">
@@ -117,7 +95,7 @@ Index
         </div>
       </div>
   </div>
-    <div class="right">
+    <div class="little-part">
       <h2>Рейтинг</h2>
       <div class="rating_img">
       </div>
@@ -158,11 +136,11 @@ Index
   </section>
 
   <section id="5" class="partners">
-    <div class="left">
+    <div class="little-part">
       <h2>Партнёры</h2>
       <div class="partners_img"></div>
     </div>
-    <div class="right">
+    <div class="big-part">
       <div class="p_news">
         <p>Новый конкурс!</p>
         <p>Победители сентября</p>

@@ -1,10 +1,12 @@
 function f() 
 {
 	var menu = document.querySelector('.menu');
+	var headerHeight = document.querySelector('header').getBoundingClientRect().height;
 	var menuHeight = menu.offsetHeight;
 	var menuPos = menu.getBoundingClientRect();
 	var node = menu.nextElementSibling;
-	node.style.height = (document.documentElement.clientHeight - menuPos.bottom) + "px";
+
+	node.style.height = (document.documentElement.clientHeight - menuHeight - headerHeight) + "px";
 	node = node.nextElementSibling;
 
 	while(node.tagName == "SECTION")

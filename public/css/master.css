@@ -103,7 +103,7 @@ p + p {
 /**
 *разбили основные блоки в отношение 60-40
 **/
-.left {
+.big-part {
   font-family: 'Raleway', sans-serif;
   padding: 30px;
   width: 60%;
@@ -111,7 +111,7 @@ p + p {
   box-sizing: border-box;
 }
 
-.right {
+.little-part {
   font-family: 'Raleway', sans-serif;
   padding: 30px;
   box-sizing: border-box;

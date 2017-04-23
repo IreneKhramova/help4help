@@ -9,6 +9,8 @@
 
 	@yield('headExtra')
 	
+	<link rel="stylesheet" href="css/reset.css">
+  	<link rel="stylesheet" href="css/master.css">
   	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway" rel="stylesheet">
 </head>
 <body>
@@ -19,6 +21,20 @@
       		<img src="" alt="">
 		</div>
 	</header>
+	<span class="anchor"></span>
+	<section class="menu">
+    	<nav>
+      	<ul>
+        	<li><a href="#1">о нас</a></li>
+        	<li><a href="#2">заявки</a></li>
+        	<li><a href="#3">рейтинг</a></li>
+        	<li><a href="#4">отзывы</a></li>
+        	<li><a href="#5">партнёры</a></li>
+        	<li><a href="#6">контакты</a></li>
+        	<li><a href="">войти</a></li>
+      	</ul>
+    	</nav>
+	</section>
 	@yield('content')
 	<footer></footer>
 </body>
