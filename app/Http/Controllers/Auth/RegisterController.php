@@ -27,7 +27,10 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected function redirectTo()
+    {
+        return '/user/' . auth()->user()->id;
+    }
 
     /**
      * Create a new controller instance.
@@ -50,7 +53,10 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
+            'skills' => 'required',
+            'photo' => 'image',
             'password' => 'required|min:6|confirmed',
+            'password__confirmation' => 'same:password',
         ]);
     }
 
@@ -62,10 +68,16 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $file = $data['photo'];
+        $filename = $file->getClientOriginalName();
+        $file->move('photos', $filename);
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'skills' => $data['skills'],
+            'photo' => 'public/photos' . $filename,
         ]);
     }
 }

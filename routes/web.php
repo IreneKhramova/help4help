@@ -51,6 +51,17 @@ Route::get('/message/{id}', 'MessageController@showDialog')->where('id', '[0-9]+
 
 Route::post('/message/{id}', 'MessageController@sendMessage')->where('id', '[0-9]+');
 
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login');
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+//Registration Routes...
+Route::post('register', 'Auth\RegisterController@register')->name('register');
+// Password Reset Routes...
+Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
+Route::post('password/reset', 'Auth\ResetPasswordController@reset');
+
 // временный маршрут
 Route::get('/env', function() {
     return App::environment();

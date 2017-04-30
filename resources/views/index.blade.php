@@ -4,6 +4,10 @@
 Index
 @stop
 
+@section('headExtra')
+<link href="{{ asset('css/index.css') }}" rel="stylesheet">
+@stop
+
 @section('content')
 <section id="1" class="whatis">
     <h2>что это такое?</h2>
@@ -18,38 +22,96 @@ Index
       <p>Выполните просьбу о помощи и получите вознаграждение</p>
     </div>
   </section>
-
+@if (Auth::guest())
   <section class="registration">
     <div class="big-part">
       <h2>Регистрация</h2>
     <p><span class="shad">Зарегестрируйся</span> чтобы иметь больше возможностей</p>
     <div class="subscribe">
-      <form action="" method="post">
-        <input type="text" name="name" placeholder="введите ваше имя">
-        <input type="email" name="email" placeholder="введите ваш email">
-        <input type="submit" value="Продолжить регистрацию">
+      <form role="form" class="form-horizontal" action="register" method="post" enctype="multipart/form-data">
+        {{ csrf_field() }}
+        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+          <label for="name" class="control-label col-sm-2">Ваше имя:</label>
+          <div class="col-sm-10">
+            <input type="text" name="name" class="form-control" placeholder="введите ваше имя" required>
+            @if ($errors->has('name'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('name') }}</strong>
+                    </span>
+                @endif
+          </div>
+        </div>
+        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+          <label for="email" class="control-label col-sm-2">Email:</label>
+          <div class="col-sm-10">
+            <input type="email" name="email" class="form-control" placeholder="введите ваш email" required>
+            @if ($errors->has('email'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('email') }}</strong>
+                    </span>
+                @endif
+          </div>
+        </div>
+        <div class="form-group{{ $errors->has('skills') ? ' has-error' : '' }}">
+          <label for="skills" class="control-label col-sm-2">Ваши навыки:</label>
+          <div class="col-sm-10">
+            <textarea name="skills" class="form-control"></textarea>
+          </div>
+        </div>
+        <div class="form-group{{ $errors->has('photo') ? ' has-error' : '' }}">
+          <label for="photo" class="control-label col-sm-2">Фото:</label>
+          <div class="col-sm-10">
+            <input type="file" name="photo" accept="image/*">
+            @if ($errors->has('avatar'))
+            <span class="help-block">
+                <strong>{{ $errors->first('photo') }}</strong>
+            </span>
+        @endif
+          </div>
+        </div>
+        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+          <label for="password" class="control-label col-sm-2">Пароль:</label>
+          <div class="col-sm-10">
+            <input type="password" name="password" class="form-control" required>
+            @if ($errors->has('password'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('password') }}</strong>
+                    </span>
+                @endif
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password_confirmation" class="control-label col-sm-2">Подтвердите пароль:</label>
+          <div class="col-sm-10">
+            <input type="password" name="password_confirmation" class="form-control" required>
+          </div>
+        </div>
+        <div class="col-sm-offset-2 col-sm-10">
+          <input type="submit" value="Зарегистрироваться">
+        </div>
       </form>
     </div>
   </div>
+
   <div class="little-part">
     <div class="reg_img">
     </div>
   </div>
   </section>
-
+@endif
   <section id="2" class="new_orders">
     <div class="little-part">
     <h2>Новые заявки</h2>
     <div class="new_orders_img">
     </div>
     <div class="subscribe">
-     <form action="" method="post">
-       <input type="submit" name="" value="Просмотреть все заявки">
-     </form>
+    <div>
+     <a href="/need">Просмотреть все заявки</a>
      </div>
+    </div>
   </div>
   <div class="big-part">
-	@foreach($needs as $key => $need)
+  @foreach($needs as $key => $need)
      <div class="block">
       <div class="icon">
         <div class="service-icon">
@@ -61,7 +123,7 @@ Index
         <p>{{$need->text}}</p>
        </div>
      </div>
-	@endforeach
+  @endforeach
   </div>
   </section>
 
@@ -89,9 +151,7 @@ Index
       </div>
       <div class="bottom_line">
         <div class="subscribe">
-        <form action="" method="post">
-          <input type="submit" name="" value="Просмотреть весь рейтинг">
-        </form>
+        <a href="#">Просмотреть весь рейтинг</a>
         </div>
       </div>
   </div>
@@ -129,9 +189,7 @@ Index
       <h4 class="service-head">+1234 Name Surname</h4>
     </div>
     <div class="subscribe">
-    <form action="" method="post">
-      <input type="submit" name="" value="Просмотреть весь рейтинг">
-    </form>
+    <a href="/review">Просмотреть все отзывы</a>
   </div>
   </section>
 
@@ -147,9 +205,7 @@ Index
         <p>Лучшая работа</p>
       </div>
     <div class="subscribe">
-    <form action="" method="post">
-      <input type="submit" name="" value="Просмотреть все новости">
-    </form>
+    <a href="#">Подробнее</a>
   </div>
     </div>
   </section>
