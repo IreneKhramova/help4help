@@ -1,5 +1,9 @@
 @extends('layout')
 
+@section('headExtra')
+<link href="{{ asset('css/form.css') }}" rel="stylesheet">
+@stop
+
 @section('content')
 <div class="container">
     <div class="row">
