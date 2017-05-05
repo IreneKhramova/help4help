@@ -49,6 +49,9 @@
           <li><a href="#6">контакты</a></li>
           @else
           <li><a href="/">главная</a></li>
+          @if (Auth::guest())
+          <li><a href="/#7">зарегистрироваться</a></li>
+          @endif
           <li><a href="/need">заявки</a></li>
           <li><a href="/rating">рейтинг</a></li>
           <li><a href="/review">отзывы</a></li>
