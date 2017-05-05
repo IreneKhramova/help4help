@@ -120,7 +120,9 @@ Index
           <h4 class="service-head">{{$need->user_from->name}}</h4>
         </div>
         <div class="text">
-          <p>{{$need->text}}</p>
+          <a href="{{ URL::to('/need', ['id' => $need->id]) }}">
+            <p>{{$need->text}}</p>
+          </a>
         </div>
      </div>
     @endforeach
@@ -135,7 +137,9 @@ Index
           <div class="service-icon">
             <img src="images/services/Branding-Identity.png">
           </div>
-          <h4 class="service-head">{{$user->name}}</h4>
+          <a href="{{ URL::to('/user', ['id' => $user->id]) }}">
+            <h4 class="service-head">{{$user->name}}</h4>
+          </a>
           <h3>{{$user->rating}}</h3>
         </div>
         @endforeach
