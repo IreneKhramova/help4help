@@ -8,16 +8,16 @@ use App\User;
 class UserController extends Controller
 {
 	public function showProfile(User $userModel, $id) {
-		/*
-			Здесь проверять, что id совпадает с id пользователя,
-			который просматривает страницу,  и тогда выводить еще настройки.
-			Или лучше сделать отдельно?
-		*/
 		$user = $userModel->getUser($id);
 		return view('user/profile', ['user' => $user]);
 	}
 
-	public function editProfile($id) {
+	public function getEditProfile(User $userModel, $id) {
+		$user = $userModel->getUser($id);
+		return view('user/editProfile', ['user' => $user]);
+	}
+
+	public function postEditProfile($id) {
 		return redirect()->action('UserController@showProfile', ['id' => $id]);
 	}
 
