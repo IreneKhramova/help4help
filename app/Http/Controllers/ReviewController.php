@@ -9,7 +9,7 @@ use App\Review;
 class ReviewController extends Controller
 {
 	public function showReviews(Review $reviewModel) {
-		$n=4;
+		$n=5;
 		$reviews = $reviewModel->getReviews($n);
 		return view('review', ['reviews' => $reviews]);
 	}

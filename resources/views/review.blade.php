@@ -5,17 +5,21 @@ Review
 @stop
 
 @section('content')
-Отзывы о нас
-<br>
 
-<div class="container">
-    <?php foreach ($reviews as $review): ?>
-    	<p>
-        <?php echo $review->text; ?>
-        </p>
-    <?php endforeach; ?>
-</div>
+<h2>Отзывы о нас</h2>
 
-<?php echo $reviews->render(); ?>
+@foreach($reviews as $key => $review)
+     <div class="block">
+      <div class="service-icon">
+          <img src="images/services/Branding-Identity.png">
+      </div>
+      <h4 class="service-head">{{$review->user_from->name}}</h4>
+      <div class="text">
+          <p>{{$review->text}}</p>
+      </div>
+     </div>
+@endforeach
+
+{{ $reviews->links() }}
 
 @stop
