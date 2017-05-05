@@ -167,7 +167,7 @@ Index
       </div>
       <h4 class="service-head">{{$review->user_from->name}}</h4>
       <div class="text">
-          <p>{{$need->text}}</p>
+          <p>{{$review->text}}</p>
       </div>
      </div>
     @endforeach
