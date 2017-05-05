@@ -9,7 +9,7 @@ use App\Need;
 class NeedController extends Controller
 {
 	public function showNeedList(Need $needModel) {
-		$n=4;
+		$n=10;
 		$needs = $needModel->getNeedList($n);
 		return view('need/needList', ['needs' => $needs]);
 	}

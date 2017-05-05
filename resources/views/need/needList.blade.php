@@ -1,19 +1,29 @@
 @extends('layout')
 
 @section('title')
-Задания
+Новые заявки
 @stop
 
 @section('content')
-Общий список заданий
+<h2>Новые заявки</h2>
 <br>
 
-<div class="container">
-    <?php foreach ($needs as $need): ?>
-        <?php echo $need->id; ?>
-    <?php endforeach; ?>
-</div>
+@foreach($needs as $key => $need)
+      <div class="block">
+        <div class="icon">
+          <div class="service-icon">
+            <img src="images/services/Branding-Identity.png">
+          </div>
+          <h4 class="service-head">{{$need->user_from->name}}</h4>
+        </div>
+        <div class="text">
+        	<a href="{{ URL::to('/need', ['id' => $need->id]) }}">
+          		<p>{{$need->text}}</p>
+          	</a>
+        </div>
+     </div>
+    @endforeach
 
-<?php echo $needs->render(); ?>
+{{ $needs->links() }}
 
 @stop
