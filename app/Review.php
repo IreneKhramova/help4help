@@ -29,15 +29,16 @@ class Review extends Model
     public function store(Request $request) {
     	//здесь будет проверка $request->all()
 		$review = new Review;
-		/*if (Auth::check())
+		if (Auth::check())
 		{
     		// The user is logged in...
 			$review->id_from = Auth::user()->id;
 		}
 		else
 		{
-			//return redirect регистрация/вход;
-		}*/
+			//регистрация/вход;
+            return redirect('/#7');
+		}
 		$review->id_from = $request->id_from;
 		$review->text = $request->text;
 		

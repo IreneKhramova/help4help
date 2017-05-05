@@ -39,6 +39,9 @@
         <ul>
           @if (url()->current() == url('/'))
           <li><a href="#1">о нас</a></li>
+          @if (Auth::guest())
+          <li><a href="#7">зарегистрироваться</a></li>
+          @endif
           <li><a href="#2">заявки</a></li>
           <li><a href="#3">рейтинг</a></li>
           <li><a href="#4">отзывы</a></li>

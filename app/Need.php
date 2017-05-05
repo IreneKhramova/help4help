@@ -47,15 +47,16 @@ class Need extends Model
     {
         //здесь будет проверка $request
         $need = new Need;
-        /*if (Auth::check())
+        if (Auth::check())
         {
             // The user is logged in...
             $need->id_from = Auth::user()->id;
         }
         else
         {
-            //return redirect регистрация/вход;
-        }*/
+            //регистрация/вход;
+            return redirect('/#7');
+        }
         $need->id_from = $request->id_from;
         $need->text = $request->text;
         //что, если такой категории нет? Может, сделать select в форме вместо input?

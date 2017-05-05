@@ -21,9 +21,9 @@ Index
       <h3>Я помогаю</h3>
       <p>Выполните просьбу о помощи и получите вознаграждение</p>
     </div>
-  </section>
+</section>
 @if (Auth::guest())
-  <section class="registration">
+  <section class="registration" id="7">
     <div class="big-part">
       <h2>Регистрация</h2>
     <p><span class="shad">Зарегестрируйся</span> чтобы иметь больше возможностей</p>
@@ -101,57 +101,48 @@ Index
 @endif
   <section id="2" class="new_orders">
     <div class="little-part">
-    <h2>Новые заявки</h2>
-    <div class="new_orders_img">
-    </div>
-    <div class="subscribe">
-    <div>
-     <a href="/need">Просмотреть все заявки</a>
-     </div>
-    </div>
-  </div>
-  <div class="big-part">
-  @foreach($needs as $key => $need)
-     <div class="block">
-      <div class="icon">
-        <div class="service-icon">
-          <img src="images/services/Branding-Identity.png">
+      <h2>Новые заявки</h2>
+      <div class="new_orders_img">
+      </div>
+      <div class="subscribe">
+        <div>
+          <a href="/need">Просмотреть все заявки</a>
         </div>
-        <h4 class="service-head">{{$need->user_from->name}}</h4>
-       </div>
-       <div class="text">
-        <p>{{$need->text}}</p>
-       </div>
+      </div>
+    </div>
+    <div class="big-part">
+    @foreach($needs as $key => $need)
+      <div class="block">
+        <div class="icon">
+          <div class="service-icon">
+            <img src="images/services/Branding-Identity.png">
+          </div>
+          <h4 class="service-head">{{$need->user_from->name}}</h4>
+        </div>
+        <div class="text">
+          <p>{{$need->text}}</p>
+        </div>
      </div>
-  @endforeach
-  </div>
+    @endforeach
+    </div>
   </section>
 
   <section id="3" class="rating">
     <div class="big-part">
       <div class="top_line">
-      <div class="block">
-        <div class="service-icon">
-          <img src="images/services/Branding-Identity.png">
+        @foreach($topUsers as $key => $user)
+        <div class="block">
+          <div class="service-icon">
+            <img src="images/services/Branding-Identity.png">
+          </div>
+          <h4 class="service-head">{{$user->name}}</h4>
+          <h3>{{$user->rating}}</h3>
         </div>
-        <h4 class="service-head">+1234 Name Surname</h4>
-      </div>
-      <div class="block">
-        <div class="service-icon">
-          <img src="images/services/Branding-Identity.png">
-        </div>
-        <h4 class="service-head">+1234 Name Surname</h4>
-      </div>
-      <div class="block">
-        <div class="service-icon">
-          <img src="images/services/Branding-Identity.png">
-        </div>
-        <h4 class="service-head">+1234 Name Surname</h4>
-      </div>
-      </div>
-      <div class="bottom_line">
-        <div class="subscribe">
-        <a href="#">Просмотреть весь рейтинг</a>
+        @endforeach
+        <div class="bottom_line">
+          <div class="subscribe">
+            <a href="/rating">Просмотреть весь рейтинг</a>
+          </div>
         </div>
       </div>
     </div>
