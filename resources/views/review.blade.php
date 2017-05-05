@@ -8,6 +8,9 @@ Review
 
 <h2>Отзывы о нас</h2>
 
+@if (!Auth::guest())
+    <a href="/review/add">Оставить отзыв</a>
+@endif
 @foreach($reviews as $key => $review)
      <div class="block">
       <div class="service-icon">

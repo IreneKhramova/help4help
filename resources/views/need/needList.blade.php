@@ -8,6 +8,10 @@
 <h2>Новые заявки</h2>
 <br>
 
+@if (!Auth::guest())
+    <a href="/need/create">Создать задание</a>
+@endif
+
 @foreach($needs as $key => $need)
       <div class="block">
         <div class="icon">

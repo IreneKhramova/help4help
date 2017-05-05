@@ -39,7 +39,6 @@ class Review extends Model
 			//регистрация/вход;
             return redirect('/#7');
 		}
-		$review->id_from = $request->id_from;
 		$review->text = $request->text;
 		
 		$review->save();

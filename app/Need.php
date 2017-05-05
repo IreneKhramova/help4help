@@ -57,7 +57,6 @@ class Need extends Model
             //регистрация/вход;
             return redirect('/#7');
         }
-        $need->id_from = $request->id_from;
         $need->text = $request->text;
         //что, если такой категории нет? Может, сделать select в форме вместо input?
         $need->category_id = NeedCategory::where('name', '=', $request->category)->firstOrFail()->id;
