@@ -154,7 +154,7 @@ Index
         <a href="#">Просмотреть весь рейтинг</a>
         </div>
       </div>
-  </div>
+    </div>
     <div class="little-part">
       <h2>Рейтинг</h2>
       <div class="rating_img">
@@ -164,29 +164,18 @@ Index
 
   <section id="4" class="comment">
     <h2>Отзывы</h2>
-    <div class="block">
+    <div class="container">
+    @foreach($reviews as $key => $review)
+     <div class="block">
       <div class="service-icon">
-        <img src="images/services/Branding-Identity.png">
+          <img src="images/services/Branding-Identity.png">
       </div>
-      <h4 class="service-head">+1234 Name Surname</h4>
-    </div>
-    <div class="block">
-      <div class="service-icon">
-        <img src="images/services/Branding-Identity.png">
+      <h4 class="service-head">{{$review->user_from->name}}</h4>
+      <div class="text">
+          <p>{{$need->text}}</p>
       </div>
-      <h4 class="service-head">+1234 Name Surname</h4>
-    </div>
-    <div class="block">
-      <div class="service-icon">
-        <img src="images/services/Branding-Identity.png">
-      </div>
-      <h4 class="service-head">+1234 Name Surname</h4>
-    </div>
-    <div class="block">
-      <div class="service-icon">
-        <img src="images/services/Branding-Identity.png">
-      </div>
-      <h4 class="service-head">+1234 Name Surname</h4>
+     </div>
+    @endforeach
     </div>
     <div class="subscribe">
     <a href="/review">Просмотреть все отзывы</a>
@@ -204,22 +193,22 @@ Index
         <p>Победители сентября</p>
         <p>Лучшая работа</p>
       </div>
-    <div class="subscribe">
-    <a href="#">Подробнее</a>
-  </div>
+      <div class="subscribe">
+        <a href="#">Подробнее</a>
+      </div>
     </div>
   </section>
 
   <section id="6" class="about">
     <p>Здесь вы можете написать нам о своих предложениях или написать в техподдержку</p>
     <div class="subscribe">
-    <form action="" method="post">
-      <input type="email" name="email" placeholder="введите ваш email">
-      <input type="text" placeholder="Введите текст сообщения">
-      <input type="submit" value="Отправить">
-    </form>
-</div>
-</section>
+      <form action="" method="post">
+        <input type="email" name="email" placeholder="введите ваш email">
+        <input type="text" placeholder="Введите текст сообщения">
+        <input type="submit" value="Отправить">
+      </form>
+    </div>
+  </section>
 @stop
 @section('scriptsExtra')
 <script src="js/height.js"></script>

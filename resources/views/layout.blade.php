@@ -37,12 +37,22 @@
   <section class="menu">
       <nav>
         <ul>
+          @if (url()->current() == url('/'))
           <li><a href="#1">о нас</a></li>
           <li><a href="#2">заявки</a></li>
           <li><a href="#3">рейтинг</a></li>
           <li><a href="#4">отзывы</a></li>
           <li><a href="#5">партнёры</a></li>
           <li><a href="#6">контакты</a></li>
+          @else
+          <li><a href="/">главная</a></li>
+          <li><a href="/need">заявки</a></li>
+          <li><a href="/rating">рейтинг</a></li>
+          <li><a href="/review">отзывы</a></li>
+          <li><a href="#">партнёры</a></li>
+          <li><a href="#">контакты</a></li>
+          @endif
+
           @if (Auth::guest())
           <li><a href="/login">войти</a></li>
           @else

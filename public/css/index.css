@@ -117,7 +117,7 @@
   background-color: #dfd0bd;
   min-height: 510px;
   color: #601112;
-  position:relative;
+  position: relative;
 }
 
 .rating {
@@ -130,8 +130,9 @@
 .comment {
   text-align: center;
   background-color: #1e0c24;
-  min-height: 550px;
+  min-height: 760px;
   color: #fff;
+  position: relative;
 }
 
 .partners {
@@ -208,6 +209,12 @@
   margin: 50px 80px;
 }
 
+.comment .container {
+  height: 60%;
+  overflow: hidden;
+  
+}
+
 .new_orders .big-part {
   position:relative;
   height: 100%;
@@ -244,9 +251,8 @@
 }
 
 .comment .subscribe {
-  margin-top: 150px;
+  margin-top: 20px;
 }
-
 
 .p_news {
   padding: 50px;

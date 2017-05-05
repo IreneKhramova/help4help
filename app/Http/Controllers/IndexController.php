@@ -14,7 +14,6 @@ class IndexController extends Controller
 		$needs = $needModel->getNeedList($n);
 
 		$reviews = $reviewModel->getReviews($n);
-
 		//$topUsers = ;
 		return view('index', [
 			'needs' => $needs, 
