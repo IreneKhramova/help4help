@@ -31,7 +31,9 @@ class UserController extends Controller
 		return redirect()->action('UserController@showProfile', ['id' => $id]);
 	}
 
-	public function showTop() {
-		return view('topRating');
+	public function showTop(User $userModel) {
+		$n=10;
+		$topUsers = $userModel->getTopUsers($n);
+		return view('topRating', ['topUsers' => $topUsers]);
 	}
 }

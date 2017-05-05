@@ -34,8 +34,7 @@ class User extends Authenticatable
     public function getTopUsers($n)
     {
         //Как будем определять, если у 100500 человек рейтинг 10 из 10?
-        //вместо paginate take($n)->get();
-        $users = User::orderBy('rating', 'desc')->take($n)->get();
+        $users = User::orderBy('rating', 'desc')->paginate($n);
         return $users;
     }
 
