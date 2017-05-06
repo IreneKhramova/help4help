@@ -25,7 +25,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'skills' => $faker->text($maxNbChars = 200),
       	'rating' => $faker->randomFloat($nbMaxDecimals = 3, $min = 0, $max = 10),
       	'balance' => $faker->randomDigit,
-      	'photo' => str_random(10),
+      	'photo' => null,
         'remember_token' => str_random(10),
     ];
 });

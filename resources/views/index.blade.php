@@ -115,7 +115,11 @@ Index
       <div class="block">
         <div class="icon">
           <div class="service-icon">
-            <img src="images/services/Branding-Identity.png">
+            @if($need->user_from->photo !== null)
+              <img src="{!! $need->user_from->photo !!}">
+            @else
+              <img src="/images/services/Branding-Identity.png">
+            @endif
           </div>
           <h4 class="service-head">{{$need->user_from->name}}</h4>
         </div>
@@ -135,7 +139,11 @@ Index
         @foreach($topUsers as $key => $user)
         <div class="block">
           <div class="service-icon">
-            <img src="images/services/Branding-Identity.png">
+            @if($user->photo !== null)
+              <img src="{!! $user->photo !!}">
+            @else
+              <img src="/images/services/Branding-Identity.png">
+            @endif
           </div>
           <a href="{{ URL::to('/user', ['id' => $user->id]) }}">
             <h4 class="service-head">{{$user->name}}</h4>
@@ -163,7 +171,11 @@ Index
     @foreach($reviews as $key => $review)
      <div class="block">
       <div class="service-icon">
-          <img src="images/services/Branding-Identity.png">
+          @if($review->user_from->photo !== null)
+            <img src="{!! $review->user_from->photo !!}">
+          @else
+            <img src="/images/services/Branding-Identity.png">
+          @endif
       </div>
       <h4 class="service-head">{{$review->user_from->name}}</h4>
       <div class="text">

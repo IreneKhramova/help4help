@@ -10,7 +10,11 @@ Rating
 @foreach($topUsers as $key => $user)
     <div class="block">
         <div class="service-icon">
-            <img src="images/services/Branding-Identity.png">
+            @if($user->photo !== null)
+        		<img src="{!! $user->photo !!}">
+    		@else
+    			<img src="/images/services/Branding-Identity.png">
+    		@endif
         </div>
         <a href="{{ URL::to('/user', ['id' => $user->id]) }}">
             <h4 class="service-head">{{$user->name}}</h4>

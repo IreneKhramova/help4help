@@ -16,7 +16,11 @@
       <div class="block">
         <div class="icon">
           <div class="service-icon">
-            <img src="images/services/Branding-Identity.png">
+            @if($need->user_from->photo !== null)
+              <img src="{!! $need->user_from->photo !!}">
+            @else
+              <img src="/images/services/Branding-Identity.png">
+            @endif
           </div>
           <h4 class="service-head">{{$need->user_from->name}}</h4>
         </div>
