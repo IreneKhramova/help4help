@@ -24,8 +24,10 @@
     <p>Категория: {{$need->category->name}}</p>
     <p>За выполнение заплатят баллов: {{$need->points}}</p>
     <p>Дата размещения задания: {{$need->created_at}}</p>
-@if ($need->status == "new" && $need->id_from != Auth::user()->id)
+@if ($need->status == "new" && Auth::check())
+    @if ($need->id_from != Auth::user()->id)
     <a href="{!! action('NeedController@executeNeed', $need->id ) !!}">Выполнить</a>
+    @endif
 @endif
 </div>
 @stop
