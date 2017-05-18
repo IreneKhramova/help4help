@@ -14,6 +14,18 @@ class NeedController extends Controller
 		return view('need/needList', ['needs' => $needs]);
 	}
 
+	public function showNeedListByUserFrom(Need $needModel, $id) {
+		$n=10;
+		$needs = $needModel->getNeedListByUserFrom($n, $id);
+		return view('need/needList', ['needs' => $needs]);
+	}
+
+	public function showNeedListByUserBy(Need $needModel, $id) {
+		$n=10;
+		$needs = $needModel->getNeedListByUserBy($n, $id);
+		return view('need/needList', ['needs' => $needs]);
+	}
+
 	public function createNeed(Request $request, Need $needModel) {
 		$need = $needModel->store($request);
 		return redirect()->route('need_view', $need->id);

@@ -30,7 +30,18 @@ class Need extends Model
     {
         return $this->belongsTo('App\NeedCategory', 'category_id');
     }
-
+/* Не работает: undefined function App/transf()
+    public function transf($needs)
+    {
+        $needs->transform(function ($need, $key) {
+            $need['category'] = $need->category()->first();
+            $need['user_from'] = $need->userFrom()->first();
+            $need['user_by'] = $need->userBy()->first();
+            return $need;
+        });
+        return $needs;
+    }
+*/
     public function getNeedList($n)
     {
         $needs = Need::where('status', '=', 'new')->orderBy('created_at', 'desc')->paginate($n);
@@ -41,6 +52,33 @@ class Need extends Model
             return $need;
         });
         return $needs;
+        //return transf($needs);
+    }
+
+    public function getNeedListByUserFrom($n, $id)
+    {
+        $needs = Need::where('id_from', '=', $id)->orderBy('created_at', 'desc')->paginate($n);
+        $needs->transform(function ($need, $key) {
+            $need['category'] = $need->category()->first();
+            $need['user_from'] = $need->userFrom()->first();
+            $need['user_by'] = $need->userBy()->first();
+            return $need;
+        });
+        return $needs;
+        //return transf($needs);
+    }
+
+    public function getNeedListByUserBy($n, $id)
+    {
+        $needs = Need::where('id_by', '=', $id)->orderBy('created_at', 'desc')->paginate($n);
+        $needs->transform(function ($need, $key) {
+            $need['category'] = $need->category()->first();
+            $need['user_from'] = $need->userFrom()->first();
+            $need['user_by'] = $need->userBy()->first();
+            return $need;
+        });
+        return $needs;
+        //return transf($needs);
     }
 
     public function store(Request $request)

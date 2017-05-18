@@ -3,13 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\User;
+use App\Comment;
 
 class UserController extends Controller
 {
-	public function showProfile(User $userModel, $id) {
+	public function showProfile(User $userModel,Comment $commentModel, $id) {
 		$user = $userModel->getUser($id);
-		return view('user/profile', ['user' => $user]);
+		$n=10;
+		$comments = $commentModel->getCommentList($n, $id);
+		return view('user/profile', ['user' => $user, 'comments' => $comments]);
 	}
 
 	public function getEditProfile(User $userModel, $id) {
@@ -26,8 +30,8 @@ class UserController extends Controller
 		return view('user/bill');
 	}
 
-	public function addComment($id) {
-		//echo "Добавить отзыв о пользователе";
+	public function addComment(Request $request, Comment $commentModel, $id) {
+		$comment = $commentModel->store($request, $id);
 		return redirect()->action('UserController@showProfile', ['id' => $id]);
 	}
 
