@@ -5,7 +5,7 @@
 @stop
 
 @section('content')
-<h2>Новые заявки</h2>
+<h2>{{ $title }}</h2>
 <br>
 
 @if (!Auth::guest())

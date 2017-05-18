@@ -11,19 +11,22 @@ class NeedController extends Controller
 	public function showNeedList(Need $needModel) {
 		$n=10;
 		$needs = $needModel->getNeedList($n);
-		return view('need/needList', ['needs' => $needs]);
+		$title = "Новые заявки";
+		return view('need/needList', ['needs' => $needs, 'title' => $title]);
 	}
 
 	public function showNeedListByUserFrom(Need $needModel, $id) {
 		$n=10;
 		$needs = $needModel->getNeedListByUserFrom($n, $id);
-		return view('need/needList', ['needs' => $needs]);
+		$title = "Мои заявки";
+		return view('need/needList', ['needs' => $needs, 'title' => $title]);
 	}
 
 	public function showNeedListByUserBy(Need $needModel, $id) {
 		$n=10;
 		$needs = $needModel->getNeedListByUserBy($n, $id);
-		return view('need/needList', ['needs' => $needs]);
+		$title = "Задания, которые я выполняю";
+		return view('need/needList', ['needs' => $needs, 'title' => $title]);
 	}
 
 	public function createNeed(Request $request, Need $needModel) {
@@ -54,5 +57,10 @@ class NeedController extends Controller
 	public function showNeed(Need $needModel, $id) {
 		$need = $needModel->getNeed($id);
 		return view('need/need', ['need' => $need]);
+	}
+
+	public function executeNeed(Need $needModel, $id) {
+		$need = $needModel->executeNeed($id);
+		return redirect()->route('need_view', $need->id);
 	}
 }

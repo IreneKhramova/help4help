@@ -31,6 +31,8 @@ Route::post('/need/create', 'NeedController@createNeed');
 
 Route::get('/need/{id}/update', 'NeedController@getUpdateNeed')->where('id', '[0-9]+');
 
+Route::get('/need/{id}/execute', 'NeedController@executeNeed')->where('id', '[0-9]+');
+
 Route::put('/need/{id}/update', 'NeedController@updateNeed')->where('id', '[0-9]+');
 
 Route::get('/need/{id}/delete', 'NeedController@getDeleteNeed')->where('id', '[0-9]+');

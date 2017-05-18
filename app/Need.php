@@ -112,4 +112,26 @@ class Need extends Model
         $need['user_by'] = $need->userBy()->first();
         return $need;
     }
+
+/*    public function updateNeed($data, $id) //Response $request
+    {
+        $need = Need::find($id);
+        foreach ($data as $key => $$value) 
+        {
+            $need->$key = $value;
+        }
+        unset($value); //разорвать ссылку на последний элемент
+        $need->save();
+        return $need;
+    }*/
+
+    public function executeNeed($id)
+    {
+        $need = Need::find($id);
+        $need->status = 'execute';
+        $need->id_by = Auth::user()->id;
+        $need->save();
+        //Пользователю, опубликовавшему задание должно бы прийти уведомление
+        return $need;
+    }
 }

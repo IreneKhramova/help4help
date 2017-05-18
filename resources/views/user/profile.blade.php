@@ -26,7 +26,7 @@
 		<h3>Баланс: {{$user->balance}}</h3>
         <a href="{!! '/user/' . $user->id . '/edit' !!}">Редактировать</a>
 
-        <a href="{!! action('NeedController@showNeedListByUserFrom', $user->id) !!}">Мои задания</a>
+        <a href="{!! action('NeedController@showNeedListByUserFrom', $user->id) !!}">Мои заявки</a>
 
         <a href="{!! action('NeedController@showNeedListByUserBy', $user->id) !!}">Задания, которые я выполняю</a>
 	@endif
