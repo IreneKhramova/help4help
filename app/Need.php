@@ -44,7 +44,7 @@ class Need extends Model
 */
     public function getNeedList($n)
     {
-        $needs = Need::where('status', '=', 'new')->orderBy('created_at', 'desc')->paginate($n);
+        $needs = Need::where('status', '=', 'new')->orderBy('updated_at', 'desc')->paginate($n);
         $needs->transform(function ($need, $key) {
             $need['category'] = $need->category()->first();
             $need['user_from'] = $need->userFrom()->first();
@@ -57,7 +57,7 @@ class Need extends Model
 
     public function getNeedListByUserFrom($n, $id)
     {
-        $needs = Need::where('id_from', '=', $id)->orderBy('created_at', 'desc')->paginate($n);
+        $needs = Need::where('id_from', '=', $id)->orderBy('updated_at', 'desc')->paginate($n);
         $needs->transform(function ($need, $key) {
             $need['category'] = $need->category()->first();
             $need['user_from'] = $need->userFrom()->first();
@@ -70,7 +70,7 @@ class Need extends Model
 
     public function getNeedListByUserBy($n, $id)
     {
-        $needs = Need::where('id_by', '=', $id)->orderBy('created_at', 'desc')->paginate($n);
+        $needs = Need::where('id_by', '=', $id)->orderBy('updated_at', 'desc')->paginate($n);
         $needs->transform(function ($need, $key) {
             $need['category'] = $need->category()->first();
             $need['user_from'] = $need->userFrom()->first();
