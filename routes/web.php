@@ -52,7 +52,7 @@ Route::post('/user/{id}/comment', 'UserController@addComment')
 ->where('id', '[0-9]+');
 
 Route::get('/user/{id}/my_need', 'NeedController@showNeedListByUserFrom')->where('id', '[0-9]+');
-Route::get('/user/{id}/need_me', 'NeedController@showNeedListByUserBy')->where('id', '[0-9]+');
+Route::get('/user/{id}/need_me', ['as' => 'need_me', 'uses' => 'NeedController@showNeedListByUserBy'])->where('id', '[0-9]+');
 
 Route::get('/message/{id}', 'MessageController@showDialog')->where('id', '[0-9]+');
 

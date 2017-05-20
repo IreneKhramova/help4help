@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Need;
 
@@ -60,7 +61,12 @@ class NeedController extends Controller
 	}
 
 	public function executeNeed(Need $needModel, $id) {
+		if (!(Auth::check()))
+        {
+            //регистрация/вход;
+            return redirect('/#7');
+        }
 		$need = $needModel->executeNeed($id);
-		return redirect()->route('need_view', $need->id);
+		return redirect()->route('need_me', Auth::user()->id);
 	}
 }
