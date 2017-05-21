@@ -29,7 +29,7 @@ class Message extends Model
         if (Auth::check())
         {
             // The user is logged in...
-            $id_from = Auth::user()->id;
+            $id_user = Auth::user()->id;
         }
         else
         {
@@ -37,8 +37,11 @@ class Message extends Model
             return redirect('/#7');
         }
         $messages = Message::where([
-            ['id_from', '=', $id_from], 
+            ['id_from', '=', $id_user], 
             ['id_to', '=', $id],
+            ])->orWhere([
+                ['id_from', '=', $id], 
+                ['id_to', '=', $id_user],
             ])->orderBy('created_at', 'desc')->paginate($n);
         $messages->transform(function ($message, $key) {
             $message['user_from'] = $message->userFrom()->first();

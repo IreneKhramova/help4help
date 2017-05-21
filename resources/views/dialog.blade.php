@@ -30,10 +30,12 @@
               <img src="/images/services/Branding-Identity.png">
             @endif
           </div>
-          <h4 class="service-head">{{$message->user_from->name}}</h4>
+          <a href="{{ URL::to('/user', ['id' => $message->user_from->id]) }}">
+            <h4 class="service-head">{{$message->user_from->name}}</h4>
+          </a>
+          <h3 class="service-head">{{$message->created_at}}</h3>
         </div>
         <div class="text">
-        	<a href="{{ URL::to('/message', ['id' => $message->id]) }}">
           		<p>{{$message->text}}</p>
           	</a>
         </div>
