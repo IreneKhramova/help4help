@@ -29,5 +29,12 @@
     <a href="{!! action('NeedController@executeNeed', $need->id ) !!}">Выполнить</a>
     @endif
 @endif
+@if ($need->status == "execute" && Auth::check())
+    @if ($need->id_by == Auth::user()->id)
+    <a href="{!! action('MessageController@showDialog', $need->user_from->id ) !!}">Написать сообщение</a>
+    @elseif ($need->id_from == Auth::user()->id)
+    <a href="{!! action('MessageController@showDialog', $need->user_by->id ) !!}">Написать сообщение</a>
+    @endif
+@endif
 </div>
 @stop
