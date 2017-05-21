@@ -32,8 +32,14 @@
 @if ($need->status == "execute" && Auth::check())
     @if ($need->id_by == Auth::user()->id)
     <a href="{!! action('MessageController@showDialog', $need->user_from->id ) !!}">Написать сообщение</a>
+
     @elseif ($need->id_from == Auth::user()->id)
     <a href="{!! action('MessageController@showDialog', $need->user_by->id ) !!}">Написать сообщение</a>
+
+    <!-- Задание выполнено -->
+    <form action="{!! action('NeedController@completeNeed', ['id' => $need->id]) !!}">
+    <button>Завершить задание</button>
+    </form>
     @endif
 @endif
 </div>

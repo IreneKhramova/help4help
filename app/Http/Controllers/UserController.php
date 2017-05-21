@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\User;
 use App\Comment;
@@ -26,8 +27,9 @@ class UserController extends Controller
 	}
 
 	//Оплата баллами
-	public function bill($id1, $id2) {
-		return view('user/bill');
+	public function bill(User $userModel, $id_from, $id_to, $points) {
+		$userModel->bill($id_from, $id_to, $points);
+		return redirect()->action('UserController@showProfile', ['id' => $id]);
 	}
 
 	public function addComment(Request $request, Comment $commentModel, $id) {

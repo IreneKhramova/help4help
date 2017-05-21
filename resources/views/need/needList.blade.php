@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('title')
-Новые заявки
+{{ $title }}
 @stop
 
 @section('content')

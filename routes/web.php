@@ -39,6 +39,8 @@ Route::get('/need/{id}/delete', 'NeedController@getDeleteNeed')->where('id', '[0
 
 Route::delete('/need/{id}/delete', 'NeedController@deleteNeed')->where('id', '[0-9]+');
 
+Route::get('/need/{id}/complete', 'NeedController@completeNeed')->where('id', '[0-9]+');
+
 Route::get('/user/{id}', 'UserController@showProfile')->where('id', '[0-9]+');
 
 Route::get('/user/{id}/edit', 'UserController@getEditProfile')->where('id', '[0-9]+');

@@ -78,4 +78,17 @@ class User extends Authenticatable
         $user = User::find($id);
         return $user;
     }
+
+    //Оплата баллами
+    public static function bill($id_from, $id_to, $points)
+    {
+            $user_from = User::find($id_from);
+            $user_to = User::find($id_to);
+
+            $user_from->balance -= $points;
+            $user_to->balance += $points;
+
+            $user_from->save();
+            $user_to->save();
+    }
 }

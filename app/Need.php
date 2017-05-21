@@ -4,8 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\NeedCategory;
+use App\User;
 
 class Need extends Model
 {
@@ -133,5 +135,17 @@ class Need extends Model
         $need->save();
         //Пользователю, опубликовавшему задание должно бы прийти уведомление
         return $need;
+    }
+
+    public function completeNeed($id)
+    {
+        DB::transaction(function() use ($id){
+            $need = Need::find($id);
+            $need->status = 'closed';
+            $need->save();
+
+            User::bill($need->id_from, $need->id_by, $need->points);
+        });
+        //Пользователю, выполнившему задание должно бы прийти уведомление
     }
 }
