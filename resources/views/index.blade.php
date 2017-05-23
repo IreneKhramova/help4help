@@ -190,30 +190,14 @@ Index
   </section>
 
   <section id="5" class="partners">
-    <div class="little-part">
+    <div>
       <h2>Партнёры</h2>
-      <div class="partners_img"></div>
-    </div>
-    <div class="big-part">
-      <div class="p_news">
-        <p>Новый конкурс!</p>
-        <p>Победители сентября</p>
-        <p>Лучшая работа</p>
+      <div>
+        <a href="http://tech-coll.ru"><img src="/images/tehnokool.png" title="Техноколледж"></a>
+        <a href="http://i-mordovia.ru/"><img src="/images/air.png" title="АГЕНТСТВО ИННОВАЦИОННОГО РАЗВИТИЯ" width="100px" height="100px"></a>
+        <a href="http://www.mrsu.ru/"><img src="/images/MGU.png" title="НИ МГУ им.Огарева" height="100px"></a>
+        <a href="https://corp.mail.ru/ru/"><img src="/images/mail.png" title="mail.ru" height="100px"></a>
       </div>
-      <div class="subscribe">
-        <a href="#">Подробнее</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="6" class="about">
-    <p>Здесь вы можете написать нам о своих предложениях или написать в техподдержку</p>
-    <div class="subscribe">
-      <form action="" method="post">
-        <input type="email" name="email" placeholder="введите ваш email">
-        <input type="text" placeholder="Введите текст сообщения">
-        <input type="submit" value="Отправить">
-      </form>
     </div>
   </section>
 @stop
