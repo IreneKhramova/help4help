@@ -46,7 +46,6 @@
           <li><a href="#3">рейтинг</a></li>
           <li><a href="#4">отзывы</a></li>
           <li><a href="#5">партнёры</a></li>
-          <li><a href="#6">контакты</a></li>
           @else
           <li><a href="/">главная</a></li>
           @if (Auth::guest())
@@ -56,7 +55,6 @@
           <li><a href="/rating">рейтинг</a></li>
           <li><a href="/review">отзывы</a></li>
           <li><a href="#">партнёры</a></li>
-          <li><a href="#">контакты</a></li>
           @endif
 
           @if (Auth::guest())
