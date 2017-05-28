@@ -5,8 +5,6 @@ body {
 header {
   font-size: 0;
   background-image: url(../images/logo.jpg);
-  padding-top: 30px;
-  padding-bottom: 30px;
 }
 
 h2 {
@@ -26,10 +24,8 @@ p {
 *картинки , которые на сайте вставлены
 **/
 .head_img {
-  width: 400px;
-  height: 200px;
-
-  margin: 0px auto;
+  width: 100%;
+  height: 300px;
 }
 
 /**
@@ -38,37 +34,31 @@ p {
 .menu {
     width: 100%;
     background-color: #b50f16;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 1em;
-    line-height: 17px;
-    padding: 15px 0;
-
 }
+
+.menu > nav > ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 
 .menu a {
     font-family: 'Open Sans', sans-serif;
     color: #fff;
     font-weight: 700;
     text-decoration: none;
-}
-
-.menu li {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1em;
+    line-height: 17px;
+    padding: 15px 0;
     display: inline-block;
-}
-
-.menu li + li {
-    margin-left: 30px;
 }
 
 .anchor {
   display: block;
   visibility: hidden;
-}
-
-p + p {
-  margin-top: 20px;
 }
 
 .scrolled {

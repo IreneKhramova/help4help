@@ -10,7 +10,8 @@ Index
 
 @section('content')
 <section id="1" class="whatis">
-    <h2>что это такое?</h2>
+  <h2>что это такое?</h2>
+  <div class="part">
     <div class="big-part">
       <p><span class="logo">Help4Help</span> - место , где можно найти различную помощь и предложить помощь самому.</p>
       <p>Помогать умеют не только супергерои.</p>
@@ -21,9 +22,12 @@ Index
       <h3>Я помогаю</h3>
       <p>Выполните просьбу о помощи и получите вознаграждение</p>
     </div>
+  </div>
 </section>
+
 @if (Auth::guest())
   <section class="registration" id="7">
+  <div class="part">
     <div class="big-part">
       <h2>Регистрация</h2>
     <p><span class="shad">Зарегестрируйся</span> чтобы иметь больше возможностей</p>
@@ -97,9 +101,12 @@ Index
     <div class="reg_img">
     </div>
   </div>
+  </div>
   </section>
 @endif
+
   <section id="2" class="new_orders">
+  <div class="part">
     <div class="little-part">
       <h2>Новые заявки</h2>
       <div class="new_orders_img">
@@ -131,11 +138,13 @@ Index
      </div>
     @endforeach
     </div>
+    </div>
   </section>
 
   <section id="3" class="rating">
+  <div class="part">
     <div class="big-part">
-      <div class="top_line">
+      <div class="big-list">
         @foreach($topUsers as $key => $user)
         <div class="block">
           <div class="service-icon">
@@ -151,11 +160,9 @@ Index
           <h3>{{$user->rating}}</h3>
         </div>
         @endforeach
-        <div class="bottom_line">
-          <div class="subscribe">
-            <a href="/rating">Просмотреть весь рейтинг</a>
-          </div>
-        </div>
+      </div>
+      <div class="subscribe">
+        <a href="/rating">Просмотреть весь рейтинг</a>
       </div>
     </div>
     <div class="little-part">
@@ -163,6 +170,7 @@ Index
       <div class="rating_img">
       </div>
     </div>
+  </div>
   </section>
 
   <section id="4" class="comment">
@@ -184,8 +192,10 @@ Index
      </div>
     @endforeach
     </div>
-    <div class="subscribe">
-    <a href="/review">Просмотреть все отзывы</a>
+    <div class="part">
+      <div class="subscribe">
+        <a href="/review">Просмотреть все отзывы</a>
+      </div>
   </div>
   </section>
 
@@ -202,5 +212,5 @@ Index
   </section>
 @stop
 @section('scriptsExtra')
-<script src="js/height.js"></script>
+<!-- <script src="js/height.js"></script> -->
 @stop

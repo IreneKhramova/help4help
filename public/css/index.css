@@ -5,47 +5,31 @@
 .reg_img {
   width: 400px;
   height: 200px;
-  background-color: #f601b2;
-  margin: 0px auto;
+  background-image: url(../images/iconmonstr-user-29.svg);
 }
 
 .rating_img {
   width: 400px;
   height: 200px;
-  background-color: #f601b2;
-  margin: 0px auto;
+  background-image: url(../images/iconmonstr-education-1.svg);
 }
 
 .new_orders_img {
   width: 400px;
   height: 200px;
-  background-color: #f601b2;
-  margin: 0px auto 20px auto;
-}
-.partners_img {
-  width: 400px;
-  height: 200px;
-  background-color: #f601b2;
-  margin: 0px auto;
+  background-image: url(../images/iconmonstr-user-23.svg);
 }
 
-/**
-*разбили основные блоки в отношение 60-40
-**/
-.big-part {
-  font-family: 'Raleway', sans-serif;
-  padding: 30px;
-  width: 60%;
-  float: left;
-  box-sizing: border-box;
+
+.part {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.little-part {
-  font-family: 'Raleway', sans-serif;
-  padding: 30px;
-  box-sizing: border-box;
-  width: 40%;
-  float: left;
+.little-part > p , .big-part > p {
+  margin-bottom: 30px;
 }
 
 .shad {
@@ -57,19 +41,16 @@
 *form форма заполнения
 **/
 .subscribe {
-  margin: 0 auto;
   background: rgba(0,0,0,0.65);
   border-radius: 5px;
   display: table;
   padding: 25px;
-
 }
 
 .subscribe input, .subscribe textarea {
   border: 0;
   min-width: 200px;
   margin-right: 10px;
-  font-family: 'Open Sans', sans-serif;
   font-size: 1.2em;
   padding: 0px 5px;
   box-sizing: border-box;
@@ -77,20 +58,14 @@
 
 .subscribe input[type="submit"] {
   background-color: #f0141e;
-  border: 0;
   color: #fff;
-  font-weight: 700;
-  font-family: 'Open Sans', sans-serif;
   padding: 10px 10px;
   font-size: 1.2em;
 }
 
 .subscribe a {
   background-color: #f0141e;
-  border: 0;
   color: #fff;
-  font-weight: 700;
-  font-family: 'Open Sans', sans-serif;
   padding: 10px 10px;
   font-size: 1.2em;
   text-decoration: none;
@@ -102,167 +77,128 @@
 **/
 .whatis {
   background-color: #292929;
-  min-height: 400px;
+  min-height: 600px;
   color: #fff;
 }
 
 .registration {
   background-color: #080524;
-  min-height: 750px;
+  min-height: 940px;
   color: #fff;
 }
 
 .new_orders {
-  text-align: center;
   background-color: #dfd0bd;
-  min-height: 510px;
+  min-height: 940px;
   color: #601112;
-  position: relative;
 }
 
 .rating {
-  text-align: center;
   background-color: #fff;
-  min-height: 450px;
+  min-height: 940px;
   color: #000;
 }
 
 .comment {
-  text-align: center;
   background-color: #1e0c24;
-  min-height: 760px;
+  min-height: 940px;
   color: #fff;
-  position: relative;
+  padding-top: 40px;
 }
 
 .partners {
-  text-align: center;
   background-color: #5c0a10;
-  min-height: 450px;
+  min-height: 250px;
   color: #fff;
-}
-
-.about {
   text-align: center;
-  background-color: #000;
-  min-height: 450px;
-  color: #fff;
 }
 
-/**
-*поправки блока whatis
-**/
+
 .whatis .logo , .whatis h3 {
   color: #f01414;
   font-weight: 700;
   text-transform: uppercase;
 }
 
-.whatis h3+p {
-  margin-top: 10px;
+.whatis .big-part {
+  padding-left: 30px;
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.whatis p+h3 {
-  margin-top: 15px;
-}
-
-/**
-*поправки блока registration
-**/
-.registration p {
-  text-align: center;
-  padding-bottom: 40px;
+.whatis .little-part {
+  padding-left: 30px;
+  width: 45%;
+  padding-top: 50px;
 }
 
 .registration .big-part {
-  position: relative;
+  margin-top: 40px;
 }
 
 .registration .subscribe {
   width: 100%;
-}
-
-.registration .subscribe form {
-  margin: 20px 20px 20px 20px;
-}
-
-.service-icon {
-  margin: auto;
-  text-align: center;
-  width: 100%;
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
-.service-head {
-  text-align: center;
-  font-weight: 700;
-}
-
-.rating .block {
-  float: left;
-  margin: 0 50px 30px 30px;
-}
-
-.comment .block {
-  float: left;
-  margin: 50px 80px;
-}
-
-.comment .container {
-  height: 60%;
-  overflow: hidden;
-  
-}
-
-.new_orders .big-part {
-  position:relative;
-  height: 100%;
-  overflow: hidden;
-}
-
-.new_orders .block {
-  margin: 0px auto 10px;
-  position:relative;
-  float: left;
-  width: 100%;
-}
-
-.new_orders .block .icon {
-  float: left;
-}
-
-.new_orders .block .text {
-  float: left;
-  margin-left: 30px;
-}
-
-.new_orders .block .text p {
-    position: absolute;
-    top: 20%;
-    left: 10 px;
-}
-
-/**
-*class="rating"
-**/
-.top_line {
-      display: inline-table;
+  padding: 25px;
 }
 
 .comment .subscribe {
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-.p_news {
-  padding: 50px;
-  display: inline-block;
+.comment .container .block {
+  margin-top: 60px;
+}
+/*
+.partners  p {
+  margin-bottom: 20px;
+}
+*/
+.rating .big-part {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
 }
 
-.p_news p {
-  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+.rating .big-list {
+  display: flex;
+  justify-content: center;
 }
 
-.p_news p+p {
-  margin-top: 35px;
+.rating .big-list .block {
+  margin-top: 30px;
+  margin-right: 30px;
+}
+
+.rating .subscribe ,.new_orders .subscribe{
+  margin-top: 40px;
+}
+
+.new_orders .big-part {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.new_orders .little-part {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.new_orders .block {
+  margin-top: 30px;
+}
+
+@media screen and (max-width:470px)  {
+  .part {
+    flex-direction: column;
+  }
 }
